@@ -35,8 +35,8 @@ export default function DisplayAnswer({handleFlip, word, fetch_word_to_reviewed}
         <div
             className=" my-auto border border-[#fdfaf4] shadow-xl flex flex-col p-12 rounded-2xl h-full w-4/5 lg:w-2/5 mx-auto items-center bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50">
             <p className="self-start text-2xl font-semibold">Definition:</p>
-            <div className="flex flex-col gap-6 mt-12">
-                <p className="text-3xl text-[#2D554D] text-center font-semibold">Answer</p>
+            <div className="flex flex-col gap-6 mt-4">
+                <p className="text-3xl text-[#2D554D] text-center font-semibold">{word.name}</p>
                 <p className="text-2xl text-center text-[#2D554A]">{word.definition}</p>
             </div>
 
