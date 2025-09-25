@@ -73,7 +73,6 @@ In the project directory, you can run the following scripts:
 
 - preview: Serves the production build locally.
 
-- test: Runs tests.
 
 Technologies Used
 - React: A JavaScript library for building user interfaces.
