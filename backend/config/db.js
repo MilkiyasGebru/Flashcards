@@ -4,6 +4,12 @@ import {ENV_VARS} from "./env_var.js";
 export const sequelize = new Sequelize(ENV_VARS.DATABASE_NAME, ENV_VARS.DATABASE_USERNAME, ENV_VARS.DATABASE_PASSWORD, {
     host: ENV_VARS.DATABASE_HOST,
     dialect: "postgres",
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    },
 } )
 
 export const connectToDataBase = async ()=>{
