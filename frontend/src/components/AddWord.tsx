@@ -7,7 +7,7 @@ interface AddWordProps {
 }
 export default function AddWord({fetchWords}: AddWordProps) {
 
-    const {word, setWord, definition,setDefinition, handleAddWordFunction} = useAddWord();
+    const {word, setWord, definition,setDefinition, handleAddWordFunction, loading} = useAddWord();
     const handleAddAndRefetch = async (e: FormEvent) => {
         await handleAddWordFunction(e);
         await fetchWords();
@@ -41,8 +41,9 @@ export default function AddWord({fetchWords}: AddWordProps) {
                 />
             </div>
             <button
-                className="border border-transparent text-white py-2 px-3 rounded-md text-2xl bg-green-400  hover:cursor-pointer font-semibold "
+                className="border border-transparent text-white py-2 px-3 rounded-md text-2xl bg-green-400 disabled:cursor-not-allowed disabled:bg-green-100  hover:cursor-pointer font-semibold "
                 onClick={handleAddAndRefetch}
+                disabled={loading}
             >
                 Add
             </button>

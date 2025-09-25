@@ -9,9 +9,11 @@ export default function useAddWord() {
     const authContext = useAuthContext();
     const navigate = useNavigate();
     const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+    const [loading, setLoading] = useState(false);
 
     const handleAddWordFunction = async (e: FormEvent) => {
         e.preventDefault();
+        setLoading(true);
         const response = await fetch(`${BACKEND_BASE_URL}/api/word/add`, {
             method: "POST",
             headers: {
@@ -44,6 +46,7 @@ export default function useAddWord() {
 
             toast("Word was not added successfully")
         }
+        setLoading(false)
 
 
     }
@@ -53,7 +56,8 @@ export default function useAddWord() {
         setWord,
         definition,
         setDefinition,
-        handleAddWordFunction
+        handleAddWordFunction,
+        loading
     }
 
 }
