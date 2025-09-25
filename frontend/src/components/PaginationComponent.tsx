@@ -34,10 +34,10 @@ export default function PaginationComponent(props: PaginationComponentProps){
 
 
     return (
-        <div className="relative z-0 flex px-10 py-5 justify-between text-md">
+        <div className="relative z-0 flex flex-col md:flex-row gap-3 px-4 py-5 justify-between text-md overflow-x-auto">
             <div className="flex  items-center">
                 <label htmlFor="itemsPerPage" className="mr-2 text-gray-700 font-semibold flex items-center">
-                    Words per page:
+                    Words
                 </label>
                 <select
                     id="itemsPerPage"
