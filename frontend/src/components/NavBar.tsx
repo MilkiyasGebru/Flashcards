@@ -197,7 +197,7 @@ export default function Navbar( ) {
             {/* Mobile menu */}
             {isMobileMenuOpen && (
                 <div
-                    className="md:hidden animate-in slide-in-from-top-2 duration-300"
+                    className="fixed w-full md:hidden animate-in slide-in-from-top-2 duration-300"
                     id="mobile-menu"
                 >
                     <div

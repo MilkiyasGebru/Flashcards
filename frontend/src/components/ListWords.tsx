@@ -51,74 +51,87 @@ interface ListWordsProps{
 export default function ListWords(props: ListWordsProps) {
 
     return (
-            <div className=" relative z-0 w-full lg:w-3/5  flex flex-col  bg-gradient-to-br from-orange-50  to-gray-100 border rounded-2xl border-green-200/50 shadow-xl">
-                <div className="flex justify-between items-center p-6 w-full">
-                    <h3 className="font-bold text-3xl ">Your Flashcards</h3>
-                </div>
-                <table className="relative z-50 table-fixed w-full  overflow-visible px-4">
-                    <thead className="h-[80px] bg-white  z-0  ">
-                        <tr className=" text-lg font-bold">
-                            <th className="px-6 py-3 text-left">Word</th>
-                            <th className="px-6 py-3 text-left">Definition</th>
-                            <th className="px-6 py-3 text-left">Bin</th>
-                            <th className="px-6 py-3 text-left">Next Review</th>
-                            <th className="px-6 py-3 text-left">Wrong Guesses</th>
-                            <th className="px-6 py-3 text-left">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody className="text-xl border-b-1 border-green-200/50 ">
+        <>
+        <div
+            className=" relative z-0 w-full lg:w-3/5  flex flex-col  bg-gradient-to-br from-orange-50  to-gray-100 border rounded-2xl border-green-200/50 shadow-xl">
+            <div className="flex justify-between items-center p-6 w-full">
+                <h3 className="font-bold text-2xl ">Your Flashcards</h3>
+            </div>
+            <div className="relative w-full overflow-x-auto">
 
-                        {props.words.map(word => {
-                            return (
-                                <tr key={word.id} className="odd:bg-gray-50 even:bg-white hover:bg-green-50/80 transition-colors duration-300 ease-in-out h-[60px]">
-                                    <td className="px-6 py-3 text-left font-semibold">{word.name}</td>
-                                    <td className="px-6 py-3 text-left">{word.definition} </td>
-                                    <td className="px-6 py-3 text-left">{word.bin}</td>
-                                    <td className="px-6 py-3 text-left">{getRemainingTimeString(word.next_review_time)}</td>
-                                    <td className="px-6 py-3 text-left">{word.wrong_guesses}</td>
-                                    <td className="px-6 py-3 ">
-                                        <div className="flex space-x-2">
-                                            <button
-                                                onClick={() => props.setEditingWord({...word})}
-                                                className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-150 group"
-                                                title="Edit flashcard"
-                                            >
-                                                <Edit2
-                                                    className="w-4 h-4 group-hover:scale-110 transition-transform duration-150"/>
-                                            </button>
-                                            <button
-                                                onClick={() => props.setDeletingWordId(word.id)}
-                                                className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-150 group"
-                                                title="Delete flashcard"
-                                            >
-                                                <Trash2
-                                                    className="w-4 h-4 group-hover:scale-110 transition-transform duration-150"/>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                <table className="relative z-50 table-fixed w-full  overflow-visible px-4 min-w-[700px]">
+                    <thead className="h-[80px] bg-white  z-0  ">
+                    <tr className=" text-lg font-bold">
+                        <th className="px-6 py-3 text-left">Word</th>
+                        <th className="px-6 py-3 text-left">Definition</th>
+                        <th className="px-6 py-3 text-left">Bin</th>
+                        <th className="px-6 py-3 text-left">Next Review</th>
+                        <th className="px-6 py-3 text-left">Wrong Guesses</th>
+                        <th className="px-6 py-3 text-left">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody className="text-md border-b-1 border-green-200/50 ">
+
+                    {props.words.map(word => {
+                        return (
+                            <tr key={word.id}
+                                className="odd:bg-gray-50 even:bg-white hover:bg-green-50/80 transition-colors duration-300 ease-in-out h-[60px]">
+                                <td className="px-6 py-3 text-left font-semibold truncate">{word.name}</td>
+                                <td className="px-6 py-3 text-left truncate">{word.definition} </td>
+                                <td className="px-6 py-3 text-left">{word.bin}</td>
+                                <td className="px-6 py-3 text-left ">{getRemainingTimeString(word.next_review_time)}</td>
+                                <td className="px-6 py-3 text-left">{word.wrong_guesses}</td>
+                                <td className="px-6 py-3 ">
+                                    <div className="flex space-x-2">
+                                        <button
+                                            onClick={() => props.setEditingWord({...word})}
+                                            className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-150 group"
+                                            title="Edit flashcard"
+                                        >
+                                            <Edit2
+                                                className="w-4 h-4 group-hover:scale-110 transition-transform duration-150"/>
+                                        </button>
+                                        <button
+                                            onClick={() => props.setDeletingWordId(word.id)}
+                                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors duration-150 group"
+                                            title="Delete flashcard"
+                                        >
+                                            <Trash2
+                                                className="w-4 h-4 group-hover:scale-110 transition-transform duration-150"/>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
                         )
-                        })}
+                    })}
                     </tbody>
 
-                    {props.editingWord && (
-                        <div className=" absolute  top-[10%] bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
-                            <EditWord editingWord={props.editingWord} setEditingWord={props.setEditingWord } handleEditWord={props.handleEditWord}/>
-                        </div>
-                    )}
-                    {props.deletingWordId && (
-                        <div
-                            className=" absolute   top-[20%] bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
-                            <DeleteWordConfirmation deletingWordId={props.deletingWordId} setDeletingWordId={props.setDeletingWordId} handleDeleteWord={props.handleDeleteWord}/>
-                        </div>
-                    )}
-
                 </table>
-
-                <PaginationComponent page={props.page} setPage={props.setPage} limit={props.limit} setLimit={props.setLimit}
-                                                 totalPages={props.totalPages}/>
             </div>
 
-    )
+                <PaginationComponent page={props.page} setPage={props.setPage} limit={props.limit}
+                                     setLimit={props.setLimit}
+                                     totalPages={props.totalPages}/>
 
-}
+            </div>
+
+                {props.editingWord && (
+                    <div
+                        className=" absolute  top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
+                        <EditWord editingWord={props.editingWord} setEditingWord={props.setEditingWord}
+                                  handleEditWord={props.handleEditWord}/>
+                    </div>
+                )}
+                {props.deletingWordId && (
+                    <div
+                        className=" absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
+                        <DeleteWordConfirmation deletingWordId={props.deletingWordId}
+                                                setDeletingWordId={props.setDeletingWordId}
+                                                handleDeleteWord={props.handleDeleteWord}/>
+                    </div>
+                )}
+            </>
+
+            )
+
+            }

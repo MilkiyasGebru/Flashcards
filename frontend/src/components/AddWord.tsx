@@ -17,11 +17,11 @@ export default function AddWord({fetchWords}: AddWordProps) {
 
             <div className="flex gap-4 items-center">
                 <Plus className="text-green-500" size={32}/>
-                <h3 className="text-3xl font-bold capitalize text-center">Create new word</h3>
+                <h3 className="text-2xl font-bold capitalize text-center">Create new word</h3>
             </div>
 
             <div className="flex flex-col gap-3">
-            <p className="font-semibold text-xl">Word:</p>
+            <p className="font-semibold text-lg">Word:</p>
                 <input
                     placeholder="Enter Word..."
                     className="border border-transparent px-3 py-2 outline-none rounded-md bg-white"
@@ -30,7 +30,7 @@ export default function AddWord({fetchWords}: AddWordProps) {
                 />
             </div>
             <div className="flex flex-col gap-3">
-                <p className="font-semibold text-xl">Definition:</p>
+                <p className="font-semibold text-lg">Definition:</p>
                 <textarea
                     value={definition}
                     onChange={(e) => setDefinition(e.target.value)}
@@ -41,7 +41,7 @@ export default function AddWord({fetchWords}: AddWordProps) {
                 />
             </div>
             <button
-                className="border border-transparent text-white py-2 px-3 rounded-md text-2xl bg-green-400 disabled:cursor-not-allowed disabled:bg-green-100  hover:cursor-pointer font-semibold "
+                className="border border-transparent text-white py-2 px-3 rounded-md text-lg bg-green-400 disabled:cursor-not-allowed disabled:bg-green-100  hover:cursor-pointer font-semibold "
                 onClick={handleAddAndRefetch}
                 disabled={loading}
             >
