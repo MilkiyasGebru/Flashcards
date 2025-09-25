@@ -35,7 +35,7 @@ function getRemainingTimeString(targetDateString: string) {
     return result.trim(); // Trim any trailing spaces
 }
 
-export default function useListWords() {
+export default function useAdminHook() {
     const [limit, setLimit] = useState<number>(5);
     const [page, setPage] = useState(1);
     const [words, setWords] = useState<WordDTO[]>([]);

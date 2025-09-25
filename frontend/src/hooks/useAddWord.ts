@@ -2,7 +2,6 @@ import {useState, type FormEvent} from "react";
 import {useAuthContext} from "./useAuthContext.ts";
 import toast from "react-hot-toast";
 import {useNavigate} from "react-router-dom";
-import useListWords from "./useListWords.ts";
 
 export default function useAddWord() {
     const [word, setWord] = useState<string>("");
@@ -10,7 +9,6 @@ export default function useAddWord() {
     const authContext = useAuthContext();
     const navigate = useNavigate();
     const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
-    const {fetchWords} = useListWords()
 
     const handleAddWordFunction = async (e: FormEvent) => {
         e.preventDefault();
@@ -28,7 +26,6 @@ export default function useAddWord() {
 
         if (response.ok){
             toast("Word Successfully Added")
-            await fetchWords()
         }
         else if  (response.status === 401) {
             authContext.dispatch(
