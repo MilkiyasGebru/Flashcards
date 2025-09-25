@@ -1,5 +1,5 @@
 import './App.css'
-import { createRoutesFromElements, RouterProvider, Route, createHashRouter} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from "react-router-dom";
 import AdminLayout from "./layouts/AdminLayout.tsx";
 import RootLayout from "./layouts/RootLayout.tsx";
 import HomeLayout from "./layouts/HomeLayout.tsx";
@@ -7,7 +7,7 @@ import FlashCardContainer from "./components/FlashCardContainer.tsx";
 import AuthPage from "./components/AuthPage.tsx";
 import NotFoundPage from "./components/NotFoundPage.tsx";
 
-const router = createHashRouter(
+const router = createBrowserRouter(
     createRoutesFromElements(
         <Route >
             <Route element={<RootLayout />}>
