@@ -51,11 +51,11 @@ interface ListWordsProps{
 export default function ListWords(props: ListWordsProps) {
 
     return (
-            <div className=" w-full lg:w-3/5  flex flex-col  bg-gradient-to-br from-orange-50  to-gray-100 border rounded-2xl border-green-200/50 shadow-xl">
+            <div className=" relative z-0 w-full lg:w-3/5  flex flex-col  bg-gradient-to-br from-orange-50  to-gray-100 border rounded-2xl border-green-200/50 shadow-xl">
                 <div className="flex justify-between items-center p-6 w-full">
                     <h3 className="font-bold text-3xl ">Your Flashcards</h3>
                 </div>
-                <table className="relative table-fixed w-full  overflow-hidden px-4">
+                <table className="relative z-50 table-fixed w-full  overflow-visible px-4">
                     <thead className="h-[80px] bg-white  z-0  ">
                         <tr className=" text-lg font-bold">
                             <th className="px-6 py-3 text-left">Word</th>
@@ -102,18 +102,19 @@ export default function ListWords(props: ListWordsProps) {
                     </tbody>
 
                     {props.editingWord && (
-                        <div className=" absolute  left-[15%] top-[20%] bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
+                        <div className=" absolute  top-[10%] bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
                             <EditWord editingWord={props.editingWord} setEditingWord={props.setEditingWord } handleEditWord={props.handleEditWord}/>
                         </div>
                     )}
                     {props.deletingWordId && (
                         <div
-                            className=" absolute  left-[15%] top-[20%] bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
+                            className=" absolute   top-[20%] bg-opacity-50 w-full flex items-center justify-center z-50 p-4">
                             <DeleteWordConfirmation deletingWordId={props.deletingWordId} setDeletingWordId={props.setDeletingWordId} handleDeleteWord={props.handleDeleteWord}/>
                         </div>
                     )}
 
                 </table>
+
                 <PaginationComponent page={props.page} setPage={props.setPage} limit={props.limit} setLimit={props.setLimit}
                                                  totalPages={props.totalPages}/>
             </div>

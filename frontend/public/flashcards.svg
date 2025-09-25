@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="48" fill="#10B981" stroke="#059669" stroke-width="2"/>
+
+    <rect x="25" y="30" width="45" height="30" rx="3" ry="3"
+          fill="#ffffff" stroke="#e5e7eb" stroke-width="1"
+          transform="rotate(-8 47.5 45)" opacity="0.8"/>
+
+    <rect x="27" y="32" width="45" height="30" rx="3" ry="3"
+          fill="#ffffff" stroke="#d1d5db" stroke-width="1"
+          transform="rotate(-4 49.5 47)" opacity="0.9"/>
+
+    <rect x="30" y="35" width="45" height="30" rx="3" ry="3"
+          fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+
+    <text x="52.5" y="45" font-family="Arial, sans-serif" font-size="8"
+          font-weight="bold" text-anchor="middle" fill="#374151">Q</text>
+
+    <line x1="35" y1="50" x2="70" y2="50" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="52.5" y="58" font-family="Arial, sans-serif" font-size="8"
+          font-weight="bold" text-anchor="middle" fill="#374151">A</text>
+
+    <polygon points="70,35 75,35 75,40 70,40" fill="#f3f4f6" stroke="#d1d5db" stroke-width="0.5"/>
+    <line x1="70" y1="35" x2="75" y2="40" stroke="#d1d5db" stroke-width="0.5"/>
+
+    <circle cx="38" cy="70" r="2" fill="#fbbf24"/>
+    <circle cx="45" cy="70" r="2" fill="#f59e0b"/>
+    <circle cx="52" cy="70" r="2" fill="#d97706"/>
+    <circle cx="59" cy="70" r="2" fill="#92400e"/>
+</svg>

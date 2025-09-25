@@ -1,10 +1,10 @@
 import AddWord from "../components/AddWord.tsx";
 import ListWords from "../components/ListWords.tsx";
-import useListWords from "../hooks/useListWords.ts";
+import useAdminHook from "../hooks/useAdminHook.ts";
 
 export default function AdminLayout() {
 
-    const {page, setPage, limit, setLimit, words, totalPages, editingWord, setEditingWord, deletingWordId, setDeletingWordId, handleDeleteWord, fetchWords, handleEditWord} = useListWords()
+    const {page, setPage, limit, setLimit, words, totalPages, editingWord, setEditingWord, deletingWordId, setDeletingWordId, handleDeleteWord, fetchWords, handleEditWord} = useAdminHook()
 
     return (
         <div className="flex flex-col lg:flex-row justify-around px-12 py-6 gap-6 lg:px-24 lg:py-12">
