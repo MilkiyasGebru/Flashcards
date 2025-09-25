@@ -18,9 +18,9 @@ export default function HomeLayout(){
 
 
     return (
-        <div className="flex flex-col h-fit min-h-screen w-full bg-[#fdfaf4] bg-[url('/img.png')] bg-cover bg-no-repeat bg-fixed">
+        <div className="flex flex-col h-screen overflow-scroll  w-full bg-[#fdfaf4] bg-[url('/img.png')] bg-cover bg-no-repeat bg-fixed">
             <NavBar/>
-            <div className="h-screen w-full flex flex-col ">
+            <div className="flex-1 w-full flex flex-col ">
                 <Outlet/>
             </div>
         </div>

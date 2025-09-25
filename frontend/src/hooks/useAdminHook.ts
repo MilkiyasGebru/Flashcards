@@ -54,9 +54,7 @@ export default function useAdminHook() {
             },
         });
 
-        if (!response.ok){
-            toast("Words Fetched Successfully");
-        }
+
         const {words, total} : {words: WordDTO[], total: number} = await response.json();
         words.map(word =>{
             word.remaining_time = getRemainingTimeString(word.next_review_time)
