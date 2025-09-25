@@ -1,7 +1,7 @@
 import {UserModel} from "../models/User.js";
 import {create_jwtoken} from "../utils/GenerateJWToken.js";
 import bcrypt from "bcrypt";
-import logger from "../middleware/Logger.js";
+import logger from "../utils/Logger.js";
 
 
 export const register_user = async (req, res) => {
@@ -39,7 +39,7 @@ export const register_user = async (req, res) => {
     } catch (error){
         logger.error('Failed to register new user.', { message: error.message, stack: error.stack, username: req.body.username });
 
-        return res.status(400).json({error: error.message});
+        return res.status(500).json({error: "Internal Server Error"});
     }
 }
 
@@ -74,6 +74,6 @@ export const login_user = async (req, res) => {
 
     } catch (error) {
         logger.error('Failed to login a user.', { message: error.message, stack: error.stack, username: req.body.username });
-        return res.status(400).json({error: error.message});
+        return res.status(500).json({error: "Internal Server Error"});
     }
 }
