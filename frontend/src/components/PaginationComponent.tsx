@@ -65,7 +65,11 @@ export default function PaginationComponent(props: PaginationComponentProps){
                             key={index}
                             className={`border border-transparent px-4 font-semibold hover:bg-blue-50 hover:cursor-pointer  rounded-md ${page === value ? 'bg-green-300 text-white' : 'bg-white'}`}
                             disabled={value === "..."}
-                            onClick={() => setPage(value)}
+                            onClick={ ()=>{
+                                if (typeof value === 'number') {
+                                    setPage(value);
+                                }
+                            }}
                         >
                             {value}
                         </button>

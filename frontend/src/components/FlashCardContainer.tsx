@@ -16,7 +16,7 @@ export default function FlashCardContainer() {
         );
     }
 
-    if (word === null){
+    if (!word){
         return <div className="flex flex-col justify-center items-center h-full">
             <h3 className=" text-xl md:text-3xl  my-auto mx-auto uppercase border px-4 py-3 rounded-md bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50 border-gray-300 text-center">You have no more words to review; <br/>you are permanently done!</h3>
         </div>
